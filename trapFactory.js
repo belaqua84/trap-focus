@@ -1,3 +1,4 @@
+//Based on Julien Wajsberg's jquery trap-input https://github.com/julienw/jquery-trap-input
 (function(){
 
     'use strict';
