@@ -118,21 +118,21 @@
         var fixIndexSelector = {};
 
         return function(element){
-                $timeout(function(){//wait until DOM is loaded (or at least the next $digest cycle...ish)
-                    element.querySelector('button, link, [draggable=true], [contenteditable=true], [tabindex], input, textarea, select').focus(); //focus on first element in modal
+            $timeout(function(){//wait until DOM is loaded (or at least the next $digest cycle...ish)
+                element.querySelector('button, link, [draggable=true], [contenteditable=true], [tabindex], input, textarea, select').focus(); //focus on first element in modal
 
-                    element.onkeydown=function(e){
-                        if (e.keyCode === 9) {
-                            var goReverse = !!(e.shiftKey);
-                            if (onTab(this, e.target, goReverse)) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                            }
+                element.onkeydown=function(e){
+                    if (e.keyCode === 9) {
+                        var goReverse = !!(e.shiftKey);
+                        if (onTab(this, e.target, goReverse)) {
+                            e.preventDefault();
+                            e.stopPropagation();
                         }
-                    };
-                },0);
-                
-                return element;
+                    }
+                };
+            },0);
+            
+            return element;
         };         
              
 	};
