@@ -24,3 +24,5 @@ When trap is invoked the first focusable element inside will automatically be fo
 ###TODO
 
 Right now focusing on the first focusable element inside happens automatically, but ideally I want to provide that as an option.  For accessibility purposes when you open a modal window you should automatically focus on the first focusable element in the modal.  When you close the modal window you should return focus to the same element that the user was on before the modal was opened.  The plan is to include that functionality as an option.
+
+This factory is based on Julien Wajsberg's jquery trap-input plugin.
