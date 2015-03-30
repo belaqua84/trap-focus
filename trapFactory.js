@@ -3,7 +3,7 @@
 
     'use strict';
 
-    angular.module('yourApp').factory('trap', ['$timeout'], function($timeout){
+    angular.module('yourApp').factory('trap', ['$timeout', function($timeout){
 
         function onTab(container, elt, goReverse) {
             var $getFocus = getFocusableElementsInModal(container),
@@ -15,7 +15,7 @@
             //create an array out of the list of focusable elements in the modal
             for(var key in $getFocus){
                 if($getFocus.hasOwnProperty(key)){
-                  if(parseInt(key) !== NaN){
+                  if(parseInt(key, 10) !== NaN){
                     focusableArray.push($getFocus[key]);
                   }
                 }
@@ -59,7 +59,7 @@
                     } catch(e) {
                     }
                 }
-            };
+            }
 
             return true;        
         }
@@ -83,7 +83,7 @@
 
             fixIndexSelector.enable && fixIndexSelector.enable();
 
-            var normalFocusable = $modal.querySelectorAll('button, link, [draggable=true], [contenteditable=true], [tabindex="0"], input, textarea, select');
+            var normalFocusable = $modal.querySelectorAll('button, a, link, [draggable=true], [contenteditable=true], [tabindex="0"], input, textarea, select');
             for (var i = 0; i < normalFocusable.length; i++) {
                 if(keepNormalTabindex(normalFocusable[i])){
                     result.push({
@@ -120,7 +120,7 @@
 
         return function(element){
             $timeout(function(){//wait until DOM is loaded (or at least the next $digest cycle...ish)
-                element.querySelector('button, link, [draggable=true], [contenteditable=true], [tabindex], input, textarea, select').focus(); //focus on first element in modal
+                element.querySelector('button, a, link, [draggable=true], [contenteditable=true], [tabindex], input, textarea, select').focus(); //focus on first element in modal
 
                 element.onkeydown=function(e){
                     if (e.keyCode === 9) {
@@ -136,5 +136,5 @@
             return element;
         };         
              
-	};
+	}]);
 }());
