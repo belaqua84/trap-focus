@@ -19,7 +19,7 @@ var modalWinodw = document.getElementById('modal');
 trap(modalWindow);
 ```
  
-When trap is invoked the first focusable element inside will automatically be focused on.  Once that happens, the user won't be able to focus on anything outside (via keyboard) until the trap window is closed/hidden.  I'd recommend using ng-if to hide the modal when not in use.
+When trap is invoked the first focusable element inside will automatically be focused on.  Once that happens, the user won't be able to focus on anything outside (via keyboard) until the trap window is closed/hidden.  I'd recommend using ng-if to hide the modal when not in use. 
 
 ###TODO
 
